@@ -16,20 +16,17 @@ def callback():
     print("FULL URL:", request.url)
     print("ARGS:", request.args)
 
-    code = request.args.get("code")
+    auth_code = request.args.get("auth_code") or request.args.get("code")
     error = request.args.get("error")
 
     if error:
         return f"OAuth error: {error}", 400
 
-    if not code:
+    if not auth_code:
         return "Missing authorization code", 400
 
-    return f"Code received: {code}"
+    return f"auth_code received: {auth_code}"
 
 @app.route("/")
 def home():
     return "TikTok OAuth demo is running"
-
-if __name__ == "__main__":
-    app.run(port=5000, debug=True)
