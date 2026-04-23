@@ -7,7 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-CLIENT_KEY = os.getenv("CLIENT_ID")
+CLIENT_KEY = os.getenv("CLIENT_KEY")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
 
